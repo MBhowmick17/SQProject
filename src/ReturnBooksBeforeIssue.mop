@@ -1,0 +1,15 @@
+import java.io.*;
+import java.util.*;
+
+ReturnBooksBeforeIssue{
+ event bookIssued after() : call(public void IssueBookForm.issuedBooks()){System.out.print("Issued books testing");}
+ event bookReturn before() : call(public void ReturnBook.returnBook()){System.out.print("Return books testing");}
+ 
+ ere : (bookIssued bookReturn) endProg
+ 
+ @fail{
+    System.err.println("! It's not legal here to return books before issue.");
+    __RESET;
+ }
+
+}

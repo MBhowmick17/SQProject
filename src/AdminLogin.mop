@@ -1,0 +1,14 @@
+import java.io.*;
+import java.util.*;
+
+AdminLogin{
+ event wrongMessageShow after() : call(public void AdminLogin.wrongMessageShow()){System.out.print("Admin Login Testing");}
+ 
+ ere : (wrongMessageShow wrongMessageShow)
+ 
+ @fail{
+    System.err.println("! It's really annoying to put wrong input thrice.");
+    __RESET;
+ }
+
+}

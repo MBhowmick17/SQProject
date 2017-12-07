@@ -1,0 +1,14 @@
+import java.io.*;
+import java.util.*;
+
+AddBooks{
+ event bookAdded after() : call(public void BooksForm.bookAdded()){System.out.print("Add books testing");}
+ 
+ ere : (bookAdded bookAdded) endProg
+ 
+ @fail{
+    System.err.println("! It's not legal here to add books sequentially.");
+    __RESET;
+ }
+
+}

@@ -1,0 +1,14 @@
+import java.io.*;
+import java.util.*;
+
+LibrarianLogin{
+ event wrongLoginMessageShow after() : call(public void LibrarianLogin.wrongLoginMessageShow()){System.out.print("Librarian login testing");}
+ 
+ ere : (wrongLoginMessageShow wrongLoginMessageShow)
+ 
+ @fail{
+    System.err.println("! It's really annoying to put error message thrice.");
+    __RESET;
+ }
+
+}

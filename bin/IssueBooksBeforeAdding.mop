@@ -1,0 +1,15 @@
+import java.io.*;
+import java.util.*;
+
+IssueBooksBeforeAdding{
+ event bookAdded after() : call(public void BooksForm.bookAdded()){System.out.print("Add books testing");}
+ event bookIssued before() : call(public void IssueBookForm.issuedBooks()){System.out.print("Issued books testing");}
+ 
+ ere : (bookAdded bookIssued) endProg
+ 
+ @fail{
+    System.err.println("! It's not legal here to issue books before adding.");
+    __RESET;
+ }
+
+}
